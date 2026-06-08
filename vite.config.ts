@@ -14,6 +14,8 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 export default defineConfig({
+  // Crucial: This prefixes all compiled assets (images, CSS, JS) with your subfolder /clientwebsite/
+  base: process.env.NODE_ENV === 'production' ? '/clientwebsite/' : '/',
   plugins: [
     tanstackStart({
       prerender: {
@@ -24,7 +26,6 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      // Explicitly map the `@` path alias so Vite can resolve virtual split routes
       '@': path.resolve(__dirname, './src')
     }
   }
