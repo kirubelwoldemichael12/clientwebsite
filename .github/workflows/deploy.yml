@@ -47,7 +47,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # TanStack outputs the pre-rendered static files here
-          path: './.output/public' 
+          path: './dist/client' 
 
       - name: Deploy to GitHub Pages
         id: deployment
