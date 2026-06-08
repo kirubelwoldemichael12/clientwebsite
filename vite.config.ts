@@ -7,15 +7,26 @@
 import { defineConfig } from 'vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import react from '@vitejs/plugin-react'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 export default defineConfig({
   plugins: [
     tanstackStart({
       prerender: {
-        enabled: true, // Instructs the compiler to output static HTML files
+        enabled: true,
       }
     }),
     react()
-  ]
+  ],
+  resolve: {
+    alias: {
+      // Explicitly map the `@` path alias so Vite can resolve virtual split routes
+      '@': path.resolve(__dirname, './src')
+    }
+  }
 })
 
