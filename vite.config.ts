@@ -7,6 +7,8 @@
 import { defineConfig } from 'vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
+import tsconfigPaths from 'vite-tsconfig-paths'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
@@ -14,7 +16,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 export default defineConfig({
-  // Crucial: This prefixes all compiled assets (images, CSS, JS) with your subfolder /clientwebsite/
+  // 1. Set the base path for assets prefixing
   base: process.env.NODE_ENV === 'production' ? '/clientwebsite/' : '/',
   plugins: [
     tanstackStart({
@@ -22,7 +24,9 @@ export default defineConfig({
         enabled: true,
       }
     }),
-    react()
+    react(),
+    tailwindcss(),      // 2. ENABLE TAILWIND V4 COMPILER
+    tsconfigPaths()     // 3. Enable TS alias resolution
   ],
   resolve: {
     alias: {
