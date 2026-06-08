@@ -9,7 +9,7 @@ function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => vo
       <div className="max-w-md text-center">
         <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-destructive/10">
           <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)"
             className="h-8 w-8 text-destructive"
             fill="none"
             viewBox="0 0 24 24"
@@ -61,6 +61,8 @@ export const getRouter = () => {
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
     defaultErrorComponent: DefaultErrorComponent,
+    // Crucial: Tells TanStack Router to run relative to "/clientwebsite" instead of "/" in production
+    basepath: import.meta.env.PROD ? '/clientwebsite' : '/',
   });
 
   return router;
