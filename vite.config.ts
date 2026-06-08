@@ -8,7 +8,8 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react' // or your specific framework plugin
 
 export default defineConfig({
-  // If your repo is named "my-ethiopian-travel-app", base should be "/my-ethiopian-travel-app/"
+  // If your repo is named "clientwebsite", base should be "/clientwebsite/"
   base: process.env.NODE_ENV === 'production' ? '/clientwebsite/' : '/',
   plugins: [react()],
 })
+
