@@ -62,7 +62,7 @@ export const getRouter = () => {
     defaultPreloadStaleTime: 0,
     defaultErrorComponent: DefaultErrorComponent,
     // Crucial: Tells TanStack Router to run relative to "/clientwebsite" instead of "/" in production
-    basepath: import.meta.env.PROD ? '/clientwebsite' : '/',
+    basepath: '/',
   });
 
   return router;
