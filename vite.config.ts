@@ -17,7 +17,7 @@ const __dirname = path.dirname(__filename)
 
 export default defineConfig({
   // 1. Set the base path for assets prefixing
-  base: process.env.NODE_ENV === 'production' ? '/clientwebsite/' : '/',
+  base: '/',
   plugins: [
     tanstackStart({
       prerender: {
