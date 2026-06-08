@@ -1,6 +1,10 @@
 {
   "include": ["src/**/*.ts", "src/**/*.tsx", "vite.config.ts", "eslint.config.js"],
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
     "target": "ES2022",
     "jsx": "react-jsx",
     "module": "ESNext",
